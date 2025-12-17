@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
 import { Input } from "./Ref"
+import { Timer } from './Timer'
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function Layout() {
   return (<div style={{height:"100vh"}}>
     <Header />
     <Input />
+    <p>Offer ends in : </p>
+    <Timer />
     <div style={{height:"90vh"}}>
       <Outlet />
     </div>
