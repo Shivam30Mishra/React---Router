@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
 import { Input } from "./Ref"
 import { Timer } from './Timer'
+import { RollupState } from './RollupState'
 
 function App() {
   return (
     <div>
-
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -26,6 +26,7 @@ function Layout() {
     <Input />
     <p>Offer ends in : </p>
     <Timer />
+    <RollupState />
     <div style={{height:"90vh"}}>
       <Outlet />
     </div>
