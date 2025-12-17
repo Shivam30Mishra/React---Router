@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
+import { Input } from "./Ref"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
 function Layout() {
   return (<div style={{height:"100vh"}}>
     <Header />
+    <Input />
     <div style={{height:"90vh"}}>
       <Outlet />
     </div>
