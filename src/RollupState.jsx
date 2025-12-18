@@ -13,8 +13,10 @@ function LightBulb () {
 
   return (
     <>
+      {/* bulbon is prop to the BulbState component */}
+      {/* similarly bulbon and ToggleBulbState is prop to the ToggleBulbState */}
       <BulbState bulbOn={bulbOn} />
-      <ToggleBulbState setBulbOn={setBulbOn} />
+      <ToggleBulbState bulbOn={bulbOn} setBulbOn={setBulbOn} />
     </>
   )
 }
