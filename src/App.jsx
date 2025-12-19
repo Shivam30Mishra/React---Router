@@ -3,6 +3,7 @@ import { Input } from "./Ref"
 import { Timer } from './Timer'
 import { RollupState } from './RollupState'
 import { Counter } from './CustomHooks'
+import { usePost } from './hooks/usePostTitle' 
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/neet-online-coaching-class-11" element={<Class11Program />} />
           <Route path="/neet-online-coaching-class-12" element={<Class12Program />} />
-          <Route path="/" element={<Landing />} />
+          {/* <Route path="/" element={<Landing />} /> */}
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
@@ -22,14 +23,16 @@ function App() {
 }
 // this is layout
 function Layout() {
+  const post = usePost();
   return (<div style={{height:"100vh"}}>
-    <Header />
-    <Input />
-    <p>Offer ends in : </p>
-    <Timer />
-    <RollupState />
-    <Counter />
-    <Counter />
+    <Header /> <br />
+    <Input /> <br />
+    <p>Offer ends in : </p> <br />
+    <Timer /> <br />
+    <RollupState /> <br />
+    <Counter /> <br />
+    <Counter /> <br />
+    {post.title} <br />
     <div style={{height:"90vh"}}>
       <Outlet />
     </div>
