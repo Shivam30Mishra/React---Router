@@ -4,6 +4,7 @@ import { Timer } from './Timer'
 import { RollupState } from './RollupState'
 import { Counter } from './CustomHooks'
 import { usePost } from './hooks/usePostTitle' 
+import { useFetch } from './hooks/useFetch'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
 // this is layout
 function Layout() {
   const post = usePost();
+  const {finalData} = useFetch("https://jsonplaceholder.typicode.com/users/1")
   return (<div style={{height:"100vh"}}>
     <Header /> <br />
     <Input /> <br />
@@ -32,7 +34,26 @@ function Layout() {
     <RollupState /> <br />
     <Counter /> <br />
     <Counter /> <br />
-    {post.title} <br />
+    <p>Title of Post : {post.title}</p>
+    <p>Name: {finalData?.name}</p>
+    <p>Username: {finalData?.username}</p>
+    <p>Email: {finalData?.email}</p>
+    <p>Phone: {finalData?.phone}</p>
+    <p>Website: {finalData?.website}</p>
+      
+    <h3>Address</h3>
+    <p>Street: {finalData?.address?.street}</p>
+    <p>Suite: {finalData?.address?.suite}</p>
+    <p>City: {finalData?.address?.city}</p>
+    <p>Zipcode: {finalData?.address?.zipcode}</p>
+    <p>Lat: {finalData?.address?.geo?.lat}</p>
+    <p>Lng: {finalData?.address?.geo?.lng}</p>
+      
+    <h3>Company</h3>
+    <p>Name: {finalData?.company?.name}</p>
+    <p>Catch Phrase: {finalData?.company?.catchPhrase}</p>
+    <p>Business: {finalData?.company?.bs}</p>
+
     <div style={{height:"90vh"}}>
       <Outlet />
     </div>
