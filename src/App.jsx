@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Link, useNavigate, Outlet } from 'react-r
 import { Input } from "./Ref"
 import { Timer } from './Timer'
 import { RollupState } from './RollupState'
+import { Counter } from './CustomHooks'
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function Layout() {
     <p>Offer ends in : </p>
     <Timer />
     <RollupState />
+    <Counter />
+    <Counter />
     <div style={{height:"90vh"}}>
       <Outlet />
     </div>
