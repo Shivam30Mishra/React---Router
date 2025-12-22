@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
 import { Input } from "./Ref"
 import { Timer } from './Timer'
@@ -22,10 +23,11 @@ function App() {
     </div>
   )
 }
-// this is layout
+// this is layout component
 function Layout() {
   const post = usePost();
-  const {finalData} = useFetch("https://jsonplaceholder.typicode.com/users/1")
+  const [ postCount,setPostCount ] = useState(1);
+  const {finalData} = useFetch("https://jsonplaceholder.typicode.com/users/"+postCount)
   return (<div style={{height:"100vh"}}>
     <Header /> <br />
     <Input /> <br />
@@ -35,25 +37,10 @@ function Layout() {
     <Counter /> <br />
     <Counter /> <br />
     <p>Title of Post : {post.title}</p>
-    <p>Name: {finalData?.name}</p>
-    <p>Username: {finalData?.username}</p>
-    <p>Email: {finalData?.email}</p>
-    <p>Phone: {finalData?.phone}</p>
-    <p>Website: {finalData?.website}</p>
-      
-    <h3>Address</h3>
-    <p>Street: {finalData?.address?.street}</p>
-    <p>Suite: {finalData?.address?.suite}</p>
-    <p>City: {finalData?.address?.city}</p>
-    <p>Zipcode: {finalData?.address?.zipcode}</p>
-    <p>Lat: {finalData?.address?.geo?.lat}</p>
-    <p>Lng: {finalData?.address?.geo?.lng}</p>
-      
-    <h3>Company</h3>
-    <p>Name: {finalData?.company?.name}</p>
-    <p>Catch Phrase: {finalData?.company?.catchPhrase}</p>
-    <p>Business: {finalData?.company?.bs}</p>
-
+    <button onClick={()=> {setPostCount(1)}}>1</button>
+    <button onClick={()=> {setPostCount(2)}}>2</button>
+    <button onClick={()=> {setPostCount(3)}}>3</button>
+    <p>Name: {JSON.stringify(finalData)}</p>
     <div style={{height:"90vh"}}>
       <Outlet />
     </div>
